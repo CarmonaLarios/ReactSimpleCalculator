@@ -1,0 +1,16 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.headGroup{
+    margin-top: 20px;
+}
+
+.btnGroup{
+    margin-top: 70px;
+    padding: 10px
+}
+
+.btn{
+    display: flex;
+}

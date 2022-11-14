@@ -1,0 +1,14 @@
+.commonBtn{
+    display: flex;
+    background-color: #737373;
+    color: #ffff;
+    height: 100px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+}
+
+.commonBtn:hover{
+    background-color: #ff4444;
+}
