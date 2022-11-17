@@ -7,10 +7,15 @@
 }
 
 .btnGroup{
-    margin-top: 70px;
+    margin-top: 30px;
     padding: 10px
 }
 
 .btn{
+    display: flex;
+    justify-content: center;
+}
+
+.btnEnd{
     display: flex;
 }

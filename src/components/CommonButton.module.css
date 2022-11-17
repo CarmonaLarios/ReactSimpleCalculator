@@ -2,11 +2,14 @@
     display: flex;
     background-color: #737373;
     color: #ffff;
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 130px;
     justify-content: center;
     align-items: center;
     margin: 2px;
+    cursor: pointer;
+    padding: 2em;
+    border-radius: 10%;
 }
 
 .commonBtn:hover{
