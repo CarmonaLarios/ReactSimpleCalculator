@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useRef } from "react"
 import styles from "./CommonButton.module.css"
 
-function CommonButton({text, value: functionConcact}) {
+function CommonButton({text, functionToRun}) {
+    const ref = useRef(null)
     return ( 
-        <button className={styles.commonBtn} onClick={()=> functionConcact(text)} onKeyDown={(e) => {functionConcact(e.key)}}>
-         {text}
+        <button ref={ref} 
+                id={text}
+                className={styles.commonBtn} 
+                onClick={()=> functionToRun(text)}> 
+                {text}
         </button>
     )
 }

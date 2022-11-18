@@ -5,70 +5,66 @@ import Result from "../components/Result";
 import styles from "./Main.module.css"
 import { useState } from "react";
 import { useEffect } from "react";
+import { KeyboardButtons } from '../components/KeyBoardButtons'
+
+const numbers = ["0","1","2","3","4","5","6","7","8","9"]
+const operators = [".", "+", "-", "*", "/", "="]
 
 function Main() {
     const [total, setTotal] = useState('0')
     const [inputValue, setInputValue] = useState('0')
-    const operators = [".", "+", "-", "*", "/"]
-    //const numbers = Array.from(Array(10).keys())
-    const numbers = ["0","1","2","3","4","5","6","7","8","9"]
 
     const setValueToConcact = (value) =>{
 
         value = value.toString()
 
-        if (value === 'Enter'){
-            getTotal()
-            return
+        if (isValidOperation(value)){
+            const haveValue = inputValue.length > 0
+            let lastCharIsInvalid = false
+    
+            if(operators.includes(value) && !haveValue){
+                return
+            }
+    
+            //#region  avoids to concact invalid values like ++, --, +-, ..
+            if (haveValue){
+                lastCharIsInvalid = operators.includes(inputValue.charAt(inputValue.length-1))
+            } 
+    
+            if((operators.includes(value) && lastCharIsInvalid)){
+                console.log("Not allowed operator")
+                return
+            }
+            //#endregion
+            
+            //#region remove concact in first time (Ex: 01)
+            if(inputValue[0] === '0'){
+                setInputValue(value)
+                return
+            }
+            //#endregion
+    
+            setInputValue(inputValue.toString().concat(value)); 
         }
 
-        if(!numbers.includes(value) && !operators.includes(value)) 
-            return
-
-        const haveValue = inputValue.length > 0
-        let lastCharIsInvalid = false
-
-        if(operators.includes(value) && !haveValue){
-            return
-        }
-
-        //avoids to concact values like ++, --, +-, ..
-        if (haveValue){
-            lastCharIsInvalid = operators.includes(inputValue.charAt(inputValue.length-1))
-        } 
-        
-        if((operators.includes(value) && lastCharIsInvalid)){
-            console.log("Not allowed operator")
-            return
-        }
-
-        if(inputValue[0] === '0'){
-            setInputValue(value)
-            return
-        }
-
-        setInputValue(inputValue.toString().concat(value)); 
-        console.log(value)
     }
 
     const getTotal = () => {
         try{
+            let tmpTotal = inputValue;
             //avoids to end with +-*/
             if(operators.includes(inputValue.slice(-1))){
-                setInputValue(inputValue.slice(0, -1))
+                tmpTotal = inputValue.slice(0, -1)
             }
 
-            setTotal(eval(inputValue).toString())
-        } catch{
-            setInputValue("Error!")
-            setTimeout(() => {
-                clearTotal()    
-            }, 2000);           
+            setTotal(eval(tmpTotal).toString())
+        } catch(err){
+            throwError()       
         }
     }
 
     const clearTotal = () => {
-        setTotal('0')
+        setTotal(0)
     }
 
     const deleteLastChar = () => {
@@ -76,14 +72,26 @@ function Main() {
             setInputValue(inputValue.slice(0, -1))
         }
     }
-    
+
+    const throwError = () =>{
+        setInputValue("Error!")
+        setTimeout(() => {
+            clearTotal()    
+        }, 2000);    
+    }
 
     useEffect(() => {
         setInputValue(total)
     }, [total])
 
+   
+    const isValidOperation = (value) =>{
+        return numbers.includes(value) || operators.includes(value)
+    }
+
     return ( 
         <>
+            <KeyboardButtons/>
             <CalculatorBody>
                 <div className={styles.headGroup}>
                     <Result value={total}></Result>
@@ -91,32 +99,32 @@ function Main() {
                 </div> 
                 <div className={styles.btnGroup}>
                     <div className={styles.btn}>
-                        <CommonButton text={7} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={8} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={9} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={"AC"} value= {clearTotal}></CommonButton> 
+                        <CommonButton text={7} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={8} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={9} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={"AC"} functionToRun= {clearTotal}></CommonButton> 
                     </div>
                     <div className={styles.btn}>
-                        <CommonButton text={4} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={5} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={6} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={"+"} value={setValueToConcact}></CommonButton>
+                        <CommonButton text={4} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={5} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={6} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={"+"} functionToRun={setValueToConcact}></CommonButton>
                     </div>
                     <div className={styles.btn}>
-                        <CommonButton text={1} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={3} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={2} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={"-"} value={setValueToConcact}></CommonButton>                   
+                        <CommonButton text={1} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={3} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={2} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={"-"} functionToRun={setValueToConcact}></CommonButton>                   
                     </div>
                     <div className={styles.btn}>
-                        <CommonButton text={0} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={"."} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={"*"} value={setValueToConcact}></CommonButton>
-                        <CommonButton text={"/"} value={setValueToConcact}></CommonButton>               
+                        <CommonButton text={0} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={"."} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={"*"} functionToRun={setValueToConcact}></CommonButton>
+                        <CommonButton text={"/"} functionToRun={setValueToConcact}></CommonButton>               
                     </div>
                     <div className={styles.btnEnd}>
-                        <CommonButton text={"="} value={getTotal}></CommonButton>
-                        <CommonButton text={"DEL"} value={deleteLastChar}></CommonButton>               
+                        <CommonButton text={"="} functionToRun={getTotal}></CommonButton>
+                        <CommonButton text={"DEL"} functionToRun={deleteLastChar}></CommonButton>               
                     </div>
                 </div>
             </CalculatorBody>   

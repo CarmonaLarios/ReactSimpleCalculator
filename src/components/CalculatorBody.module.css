@@ -1,8 +1,7 @@
 .body_color{
     display: flex;
-    background-color: #000;
-    width: 550px;
-    height: 550px;
-    color: blue;
+    background-color: #1F2023;
+    width: 500px;
+    height: 620px;
     justify-content: center;
 }

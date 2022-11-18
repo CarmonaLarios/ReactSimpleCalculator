@@ -1,15 +1,15 @@
 .commonBtn{
-    display: flex;
-    background-color: #737373;
-    color: #ffff;
-    height: 50px;
-    width: 130px;
-    justify-content: center;
     align-items: center;
-    margin: 2px;
-    cursor: pointer;
-    padding: 2em;
+    background-color: #3A3B3F;
     border-radius: 10%;
+    color: #ffff;
+    cursor: pointer;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    margin: 2px;
+    padding: 2em;
+    width: 110px;
 }
 
 .commonBtn:hover{
