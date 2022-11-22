@@ -4,24 +4,25 @@ import Input from "../components/Input";
 import Result from "../components/Result";
 import styles from "./Main.module.css"
 import { useState } from "react";
-import { useEffect } from "react";
 import { KeyboardButtons } from '../components/KeyBoardButtons'
 
 const numbers = ["0","1","2","3","4","5","6","7","8","9"]
 const operators = [".", "+", "-", "*", "/", "="]
 
 function Main() {
-    const [total, setTotal] = useState('0')
-    const [inputValue, setInputValue] = useState('0')
+    const [total, setTotal] = useState('')
+    const [inputValue, setInputValue] = useState('')
 
     const setValueToConcact = (value) =>{
 
         value = value.toString()
+    
+        const haveValue = inputValue.length > 0 
 
         if (isValidOperation(value)){
-            const haveValue = inputValue.length > 0
+            
             let lastCharIsInvalid = false
-    
+            
             if(operators.includes(value) && !haveValue){
                 return
             }
@@ -52,24 +53,30 @@ function Main() {
     const getTotal = () => {
         try{
             let tmpTotal = inputValue;
+            let total = 0
+
             //avoids to end with +-*/
             if(operators.includes(inputValue.slice(-1))){
                 tmpTotal = inputValue.slice(0, -1)
             }
 
-            setTotal(eval(tmpTotal).toString())
+            total = eval(tmpTotal)
+
+            setInputValue(total.toString())
+            setTotal(total.toString())
         } catch(err){
             throwError()       
         }
     }
 
     const clearTotal = () => {
-        setTotal(0)
+        setTotal('')
+        setInputValue('')
     }
 
     const deleteLastChar = () => {
         if (inputValue.length > 0){
-            setInputValue(inputValue.slice(0, -1))
+            setInputValue(inputValue.substring(0, inputValue.length - 1))
         }
     }
 
@@ -80,13 +87,13 @@ function Main() {
         }, 2000);    
     }
 
-    useEffect(() => {
-        setInputValue(total)
-    }, [total])
+    // useEffect(() => {
+    //     setInputValue(total)
+    // }, [total])
 
    
     const isValidOperation = (value) =>{
-        return numbers.includes(value) || operators.includes(value)
+        return (numbers.includes(value) || operators.includes(value))
     }
 
     return ( 
@@ -94,8 +101,8 @@ function Main() {
             <KeyboardButtons/>
             <CalculatorBody>
                 <div className={styles.headGroup}>
-                    <Result value={total}></Result>
-                    <Input value={inputValue}></Input>
+                    <Result value={total ? total : '0'}></Result>
+                    <Input value={inputValue ? inputValue : '0'}></Input>
                 </div> 
                 <div className={styles.btnGroup}>
                     <div className={styles.btn}>
