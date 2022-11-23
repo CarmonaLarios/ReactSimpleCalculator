@@ -98,7 +98,7 @@ function Main() {
 
     return ( 
         <>
-            <KeyboardButtons/>
+            <KeyboardButtons>
             <CalculatorBody>
                 <div className={styles.headGroup}>
                     <Result value={total ? total : '0'}></Result>
@@ -134,7 +134,8 @@ function Main() {
                         <CommonButton text={"DEL"} functionToRun={deleteLastChar}></CommonButton>               
                     </div>
                 </div>
-            </CalculatorBody>   
+            </CalculatorBody>
+            </KeyboardButtons>   
         </>
         
      );

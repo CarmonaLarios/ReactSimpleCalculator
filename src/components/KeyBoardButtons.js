@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-export const KeyboardButtons = () =>{
+export const KeyboardButtons = (props) =>{
 
     //refactor this
     const numbers = ["0","1","2","3","4","5","6","7","8","9"]
@@ -27,7 +27,7 @@ export const KeyboardButtons = () =>{
         }
         
         console.log(e)
-        
+
         document.getElementById(e).click()
     } 
     
@@ -45,6 +45,11 @@ export const KeyboardButtons = () =>{
             }
         }, [])
         
+        return (
+            <>
+             {props.children}
+            </>
+        )
     }
 
-export default KeyboardButtons;
+export default KeyboardButtons
