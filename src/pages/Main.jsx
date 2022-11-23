@@ -5,6 +5,7 @@ import Result from "../components/Result";
 import styles from "./Main.module.css"
 import { useState } from "react";
 import { KeyboardButtons } from '../components/KeyBoardButtons'
+import SideBar from "../components/SideBar";
 
 const numbers = ["0","1","2","3","4","5","6","7","8","9"]
 const operators = [".", "+", "-", "*", "/", "="]
@@ -33,7 +34,7 @@ function Main() {
             } 
     
             if((operators.includes(value) && lastCharIsInvalid)){
-                console.log("Not allowed operator")
+                //console.log("Not allowed operator")
                 return
             }
             //#endregion
@@ -87,11 +88,6 @@ function Main() {
         }, 2000);    
     }
 
-    // useEffect(() => {
-    //     setInputValue(total)
-    // }, [total])
-
-   
     const isValidOperation = (value) =>{
         return (numbers.includes(value) || operators.includes(value))
     }
@@ -99,6 +95,7 @@ function Main() {
     return ( 
         <>
             <KeyboardButtons>
+                <SideBar/>
                 <CalculatorBody>
                     <div className={styles.headGroup}>
                         <Result value={total ? total : '0'}></Result>

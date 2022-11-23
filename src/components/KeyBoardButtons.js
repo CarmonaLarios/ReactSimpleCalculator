@@ -1,6 +1,5 @@
 import { useEffect, useCallback } from "react"
 
-
  //refactor this
  const numbers = ["0","1","2","3","4","5","6","7","8","9"]
  const operators = [".", "+", "-", "*", "/", "="]
@@ -13,11 +12,10 @@ export const KeyboardButtons = (props) =>{
     }
 
     const handleKeyPress = useCallback((event) => {
-        // Call updateCalc here
         if(validKeys(event.key)) {
             detectPressedKey(event.key)
         }
-        console.log(`Key pressed: ${event.key}`);
+        //console.log(`Key pressed: ${event.key}`);
       }, []);
     
     const detectPressedKey = (e) =>{
@@ -38,8 +36,6 @@ export const KeyboardButtons = (props) =>{
     } 
     
     useEffect(() => {
-        //document.addEventListener('keydown', handleKeyPress, true)
-
         document.addEventListener('keydown', handleKeyPress)
         
         return () => {
