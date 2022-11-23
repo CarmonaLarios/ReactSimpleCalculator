@@ -1,16 +1,22 @@
-import { useEffect } from "react"
+import { useEffect, useCallback } from "react"
 
-export const KeyboardButtons = () =>{
+ //refactor this
+ const numbers = ["0","1","2","3","4","5","6","7","8","9"]
+ const operators = [".", "+", "-", "*", "/", "="]
+ let shortCutButtons = ["Enter", "Delete", "Backspace","R", "r"]
 
-    //refactor this
-    const numbers = ["0","1","2","3","4","5","6","7","8","9"]
-    const operators = [".", "+", "-", "*", "/", "="]
-    let shortCutButtons = ["Enter", "Delete", "Backspace","R", "r"]
-    
-    
+export const KeyboardButtons = (props) =>{
+
     const validKeys = (value) =>{
         return numbers.includes(value) || operators.includes(value) || shortCutButtons.includes(value) 
     }
+
+    const handleKeyPress = useCallback((event) => {
+        if(validKeys(event.key)) {
+            detectPressedKey(event.key)
+        }
+        //console.log(`Key pressed: ${event.key}`);
+      }, []);
     
     const detectPressedKey = (e) =>{
         
@@ -29,20 +35,19 @@ export const KeyboardButtons = () =>{
         document.getElementById(e).click()
     } 
     
-        useEffect(() => {
-            return () => {
-                const handleEvent = event =>{
-                    const {key} = event
-                    if(validKeys(key)) {
-                        detectPressedKey(key)
-                    }
-                }
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyPress)
         
-                document.addEventListener('keydown', handleEvent, true)
-                document.removeEventListener('keydown', handleEvent)
-            }
-        }, [])
-        
-    }
+        return () => {
+            document.removeEventListener('keydown', handleKeyPress)
+        }
+    }, [handleKeyPress])
+    
+    return (
+        <>
+            {props.children}
+        </>
+    )
+}
 
-export default KeyboardButtons;
+export default KeyboardButtons
