@@ -25,7 +25,9 @@ export const KeyboardButtons = () =>{
         if(e.toUpperCase() === 'R'){
             e = 'AC'
         }
-    
+        
+        console.log(e)
+        
         document.getElementById(e).click()
     } 
     
