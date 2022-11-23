@@ -39,8 +39,8 @@ export const KeyboardButtons = (props) =>{
     
     useEffect(() => {
         return () => {
-            document.addEventListener('keydown', handleKeyPress, true)
-            document.removeEventListener('keydown', handleKeyPress)
+            window.addEventListener('keydown', handleKeyPress, true)
+            window.removeEventListener('keydown', handleKeyPress)
         }
     }, [handleKeyPress])
     
