@@ -49,7 +49,6 @@ export const KeyboardButtons = (props) =>{
     
     return (
         <>
-            <h1>Teste</h1>
             {props.children}
         </>
     )
