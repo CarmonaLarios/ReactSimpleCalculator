@@ -38,14 +38,18 @@ export const KeyboardButtons = (props) =>{
     } 
     
     useEffect(() => {
+        //document.addEventListener('keydown', handleKeyPress, true)
+
+        document.addEventListener('keydown', handleKeyPress)
+        
         return () => {
-            window.addEventListener('keydown', handleKeyPress, true)
-            window.removeEventListener('keydown', handleKeyPress)
+            document.removeEventListener('keydown', handleKeyPress)
         }
     }, [handleKeyPress])
     
     return (
         <>
+            <h1>Teste</h1>
             {props.children}
         </>
     )
