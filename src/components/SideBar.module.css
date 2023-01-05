@@ -1,7 +1,7 @@
 
 .sidebar{  
     height: 100%;
-    width: 3%;
+    width: 50px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -34,7 +34,7 @@
 }
 
 .sidebar:not(:hover) {
-    width: 3%;
+    width: 50px;
     transition: .8s;
 }
 
@@ -70,5 +70,11 @@ li > p > span{
 .sidebar ul{
     list-style: none;
 }
+
+@media screen and (width < 800px) {
+    .sidebar{
+      visibility: hidden;
+    }
+  }
 
 
