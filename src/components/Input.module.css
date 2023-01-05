@@ -1,8 +1,10 @@
 .input_color{
-    color: #fff;
     display: flex;
+    color: #fff;
     font-size: 3.0em;
+    width: 32vw;
     justify-content: right;
     margin: 5px;
-    width: 485px;
+    min-width: 300px;
+    max-width: 490px;
 }

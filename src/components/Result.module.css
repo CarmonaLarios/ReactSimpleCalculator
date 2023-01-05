@@ -2,7 +2,9 @@
     display: flex;
     color: #f8fdb0;
     font-size: 3.0em;
-    width: 485px;
+    width: 32vw;
     justify-content: right;
     margin: 5px;
+    min-width: 300px;
+    max-width: 490px;
 }
