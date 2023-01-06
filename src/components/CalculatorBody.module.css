@@ -6,7 +6,8 @@
     width: 35vw;
     height: 85vh;
     justify-content: center;
-    max-height: 620px;
+    min-height: 500px;
+    max-height: 550px;
 }
 
 @media screen and (width < 600px) {
@@ -16,11 +17,5 @@
       right: 20vw;
       display: flex;
       align-items: center;
-    }
-}
-
-@media screen and (height < 600px) {
-    .body_color{
-        min-height: 500px;
     }
 }
