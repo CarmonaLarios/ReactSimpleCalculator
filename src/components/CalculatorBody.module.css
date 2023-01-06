@@ -1,11 +1,26 @@
 .body_color{
     min-width: 320px;
-    min-height: 550px;
     max-width: 500px;
-    max-height: 600px;
     display: flex;
     background-color: #1F2023;
     width: 35vw;
     height: 85vh;
     justify-content: center;
+    max-height: 620px;
+}
+
+@media screen and (width < 600px) {
+    .body_color{
+      position: absolute;
+      left: 20vw;
+      right: 20vw;
+      display: flex;
+      align-items: center;
+    }
+}
+
+@media screen and (height < 600px) {
+    .body_color{
+        min-height: 500px;
+    }
 }

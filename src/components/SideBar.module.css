@@ -1,7 +1,7 @@
 
 .sidebar{  
     height: 100%;
-    width: 50px;
+    width: 2vw;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -12,6 +12,7 @@
     color: #FFFF;
     text-align: center;
     overflow-y: hidden;
+    min-width: 4vw;
 }
 
 .sidebar .title{
@@ -23,18 +24,19 @@
 .sidebar .help{
     padding-right: 0.5em;
     writing-mode: vertical-rl;
-    font-size: 1.3em;
+    font-size: 1.5rem;
     transform: rotate(180deg);
     height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .sidebar:hover {
-    width: 20%;
+    width: 30vw;
     transition: .8s;
 }
 
 .sidebar:not(:hover) {
-    width: 50px;
     transition: .8s;
 }
 
@@ -48,7 +50,6 @@
     padding: 1em;
     justify-content: center;
     align-items: center;
-
 }
 
 li > p > span{
@@ -74,7 +75,6 @@ li > p > span{
 @media screen and (width < 800px) {
     .sidebar{
       visibility: hidden;
+      transition: 0.8s;
     }
-  }
-
-
+}

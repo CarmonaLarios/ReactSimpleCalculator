@@ -18,3 +18,12 @@
 .commonBtn:hover{
     background-color: #ff7c25;
 }
+
+
+@media screen and (height < 600px) {
+    .commonBtn{
+        font-size: 3vh;
+        padding: 0;
+        margin: 1px;
+    }
+}
