@@ -9,7 +9,7 @@ Some concepts presented:
 -React JS<br>
 -Resposivity<br>
 
-![image](https://user-images.githubusercontent.com/41341312/210888659-76797a06-8d95-4b3e-b021-1c14586eb1f0.png)
+![image](https://user-images.githubusercontent.com/41341312/211041357-17dcea55-c547-421a-968a-a09cd8e243a5.png)
 
 You can preview the project here: https://simplereactcalculator22.netlify.app/
 
