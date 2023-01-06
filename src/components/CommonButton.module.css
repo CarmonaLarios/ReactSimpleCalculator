@@ -22,8 +22,14 @@
 
 @media screen and (height < 600px) {
     .commonBtn{
-        font-size: 3vh;
+        font-size: 10px;
         padding: 0;
-        margin: 1px;
+        min-height: 45px;
+    }
+}
+
+@media screen and (width < 900px) {
+    .commonBtn{
+        min-width: 65px;
     }
 }

@@ -14,7 +14,7 @@ const SideBar = () => {
                             <p>Numbers: <span>0</span>...<span>9</span></p>
                         </li>
                         <li><p>Operators: <span>+</span>, <span>-</span>, <span>*</span>, <span>/</span> </p></li>
-                        <li><p>Call equals: <span>=</span></p></li>
+                        <li><p>Call equals: <span>=</span>,<span>Enter</span></p></li>
                         <li><p>Delete: <span>Backspace</span>,<span>Delete</span> </p></li>
                         <li><p>Reset values: <span>R</span></p></li>
                     </ul>
