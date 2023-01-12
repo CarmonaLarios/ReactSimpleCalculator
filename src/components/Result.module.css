@@ -1,6 +1,6 @@
 .result_color{
     display: flex;
-    color: #f8fdb0;
+    color: var(--light-yellow);
     font-size: 3.0em;
     width: 32vw;
     justify-content: right;

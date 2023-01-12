@@ -1,8 +1,8 @@
 .commonBtn{
     align-items: center;
-    background-color: #3A3B3F;
+    background-color: var(--calculator-buttons);
     border-radius: 10%;
-    color: #ffff;
+    color: var(--white);
     cursor: pointer;
     display: flex;
     height: 10vh;
@@ -16,9 +16,8 @@
 }
 
 .commonBtn:hover{
-    background-color: #ff7c25;
+    background-color: var( --calcutator-button-hover);
 }
-
 
 @media screen and (height < 600px) {
     .commonBtn{
