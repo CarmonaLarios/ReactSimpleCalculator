@@ -1,15 +1,16 @@
 # Simple React Calculator
 
-A simple calculator to show my learning in React JS.
+A simple calculator to show my knowledgment in React JS.
 
 Some concepts presented:
 
--HTML<br>
--CSS<br>
--React JS<br>
--Resposivity<br>
+-HTML;<br>
+-CSS;<br>
+-React JS;<br>
+-Resposivity;<br>
+-Hide elements in different devices (Lateral bar only shows in computer devices); <br>
 
-![image](https://user-images.githubusercontent.com/41341312/211041357-17dcea55-c547-421a-968a-a09cd8e243a5.png)
+![image](https://user-images.githubusercontent.com/41341312/212108234-d07fa6cb-ebe3-4b25-b29f-51dd89c7b23f.png)
 
 You can preview the project here: https://simplereactcalculator22.netlify.app/
 
