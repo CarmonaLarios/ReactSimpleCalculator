@@ -8,15 +8,21 @@
     height: 10vh;
     justify-content: center;
     margin: 2px;
-    padding: 2em;
+    padding: 1em;
     width: 7vw;
     font-size: 15px;
     max-height: 60px;
     max-width: 90px;
 }
 
-.commonBtn:hover{
-    background-color: var( --calcutator-button-hover);
+.commonBtnClick{
+    font-size: 30px;
+}
+
+@media (hover : hover) {
+    .commonBtn:hover{
+        background-color: var(--calcutator-button-hover);
+    }    
 }
 
 @media screen and (height < 600px) {

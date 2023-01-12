@@ -16,6 +16,8 @@ function Main() {
 
     const isMobile = navigator.userAgentData.mobile
 
+    //document.getElementById("root").addEventListener('click', () => document.mou)
+
     const setValueToConcact = (value) =>{
 
         value = value.toString()
@@ -98,12 +100,12 @@ function Main() {
         <>
             <KeyboardButtons>
                 {!isMobile && <SideBar/>}
-                <CalculatorBody>
-                    <div className={styles.headGroup}>
+                <CalculatorBody id="calculatorBody">
+                    <div className={styles.headGroup} id="calculatorHeader">
                         <Result id="display" value={total ? total : '0'}></Result>
                         <Input value={inputValue ? inputValue : '0'}></Input>
                     </div> 
-                    <div className={styles.btnGroup}>
+                    <div className={styles.btnGroup} id="calculatorButtons">
                         <div className={styles.btn}>
                             <CommonButton id="seven" text={7} functionToRun={setValueToConcact}></CommonButton>
                             <CommonButton id="eight" text={8} functionToRun={setValueToConcact}></CommonButton>
