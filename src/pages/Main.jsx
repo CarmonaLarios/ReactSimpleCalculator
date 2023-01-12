@@ -14,6 +14,8 @@ function Main() {
     const [total, setTotal] = useState('')
     const [inputValue, setInputValue] = useState('')
 
+    const isMobile = navigator.userAgentData.mobile
+
     const setValueToConcact = (value) =>{
 
         value = value.toString()
@@ -95,40 +97,40 @@ function Main() {
     return ( 
         <>
             <KeyboardButtons>
-                <SideBar/>
+                {!isMobile && <SideBar/>}
                 <CalculatorBody>
                     <div className={styles.headGroup}>
-                        <Result value={total ? total : '0'}></Result>
+                        <Result id="display" value={total ? total : '0'}></Result>
                         <Input value={inputValue ? inputValue : '0'}></Input>
                     </div> 
                     <div className={styles.btnGroup}>
                         <div className={styles.btn}>
-                            <CommonButton text={7} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={8} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={9} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={"AC"} functionToRun= {clearTotal}></CommonButton> 
+                            <CommonButton id="seven" text={7} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="eight" text={8} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="nine" text={9} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="clear" text={"AC"} functionToRun= {clearTotal}></CommonButton> 
                         </div>
                         <div className={styles.btn}>
-                            <CommonButton text={4} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={5} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={6} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={"+"} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="four" text={4} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="five" text={5} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="six" text={6} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="add" text={"+"} functionToRun={setValueToConcact}></CommonButton>
                         </div>
                         <div className={styles.btn}>
-                            <CommonButton text={1} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={3} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={2} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={"-"} functionToRun={setValueToConcact}></CommonButton>                   
+                            <CommonButton id="one" text={1} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="two" text={2} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="three" text={3} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="subtract" text={"-"} functionToRun={setValueToConcact}></CommonButton>                   
                         </div>
                         <div className={styles.btn}>
-                            <CommonButton text={0} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={"."} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={"*"} functionToRun={setValueToConcact}></CommonButton>
-                            <CommonButton text={"/"} functionToRun={setValueToConcact}></CommonButton>               
+                            <CommonButton id="zero" text={0} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="decimal" text={"."} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="multiply" text={"*"} functionToRun={setValueToConcact}></CommonButton>
+                            <CommonButton id="divide" text={"/"} functionToRun={setValueToConcact}></CommonButton>               
                         </div>
                         <div className={styles.btnEnd}>
-                            <CommonButton text={"="} functionToRun={getTotal}></CommonButton>
-                            <CommonButton text={"DEL"} functionToRun={deleteLastChar}></CommonButton>               
+                            <CommonButton id="equals" text={"="} functionToRun={getTotal}></CommonButton>
+                            <CommonButton id="del" text={"DEL"} functionToRun={deleteLastChar}></CommonButton>               
                         </div>
                     </div>
                 </CalculatorBody>

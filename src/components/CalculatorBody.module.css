@@ -2,7 +2,7 @@
     min-width: 320px;
     max-width: 500px;
     display: flex;
-    background-color: #1F2023;
+    background-color: var(--calculator-background-color);
     width: 35vw;
     height: 85vh;
     justify-content: center;
@@ -13,9 +13,8 @@
 @media screen and (width < 600px) {
     .body_color{
       position: absolute;
-      left: 20vw;
-      right: 20vw;
       display: flex;
       align-items: center;
     }
 }
+

@@ -6,18 +6,17 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
-    overflow-x: hidden;
+    background-color: var(--black);
+    overflow: hidden;
     padding-top: 20px;
-    color: #FFFF;
+    color: var(--white);
     text-align: center;
-    overflow-y: hidden;
-    min-width: 4vw;
+    min-width: 65px;
 }
 
 .sidebar .title{
     font-size: 1.3em;
-    border: 2px #2b2a2af3;
+    border: 2px var(--calculator-buttons);
     border-style: solid none;
 }
 
@@ -58,9 +57,9 @@ li > p > span{
 
 .sidebar ul li span{
     align-items: center;
-    background-color: #3A3B3F;
+    background-color: var(--calculator-buttons);
     border-radius: 10%;
-    color: #ffff;
+    color: var(--white);
     display: flex;
     height: 1.5em;
     justify-content: center;

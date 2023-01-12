@@ -1,6 +1,6 @@
 .input_color{
     display: flex;
-    color: #fff;
+    color: var(--white);
     font-size: 3.0em;
     width: 32vw;
     justify-content: right;
