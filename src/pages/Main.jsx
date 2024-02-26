@@ -135,6 +135,7 @@ function Main() {
                             <CommonButton id="del" text={"DEL"} functionToRun={deleteLastChar}></CommonButton>               
                         </div>
                     </div>
+                    <iframe src="https://simulador-planos.netlify.app/" width="600" height="400" frameborder="0"></iframe>
                 </CalculatorBody>
             </KeyboardButtons>   
         </>
